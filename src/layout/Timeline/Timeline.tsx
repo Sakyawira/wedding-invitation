@@ -76,7 +76,7 @@ const Timeline = ({ isCollapsed = false, onExpand }: TimelineProps) => {
               contentArrowStyle={{ borderRight: '7px solid rgba(var(--color-pink), 0.9)' }}>
               <PointTitle>{event.title}</PointTitle>
               <Caption>{event.description}</Caption>
-              <Image src={event.image} alt={event.title} />
+              <Image src={event.image} alt={event.title} shapeIndex={idx} />
               {isCollapsed && idx === previewCount - 1 && (
                 <ExpandButton onClick={onExpand}>Show Full Timeline</ExpandButton>
               )}
@@ -100,12 +100,75 @@ const TimelineWrapper = styled.div`
   position: relative;
 `;
 
-const Image = styled.img`
+// deterministic PRNG
+const mulberry = (seed: number) => () => {
+  let t = seed += 0x6D2B79F5;
+  t = Math.imul(t ^ (t >>> 15), t | 1);
+  t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+  return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+};
+
+const chaikin = (pts: Array<[number, number]>) => {
+  const out: Array<[number, number]> = [];
+  for (let i = 0; i < pts.length; i++) {
+    const p0 = pts[i];
+    const p1 = pts[(i + 1) % pts.length];
+    out.push([p0[0] * 0.75 + p1[0] * 0.25, p0[1] * 0.75 + p1[1] * 0.25]);
+    out.push([p0[0] * 0.25 + p1[0] * 0.75, p0[1] * 0.25 + p1[1] * 0.75]);
+  }
+  return out;
+};
+
+const generateLargeBlob = (index = 0, points = 24) => {
+  const rand = mulberry(index + 1);
+  const minR = 52;
+  const maxR = 78;
+  const cx = 50 + (rand() - 0.5) * 6;
+  const cy = 50 + (rand() - 0.5) * 6;
+
+  // initial radii with variation
+  const radii: number[] = Array.from({ length: points }, () => minR + rand() * (maxR - minR));
+
+  // apply smoothing by converting to coordinates and running Chaikin several times
+  let coords: Array<[number, number]> = radii.map((r, i) => {
+    const angle = (i / points) * Math.PI * 2;
+    return [cx + Math.cos(angle) * r, cy + Math.sin(angle) * r];
+  });
+
+  coords = chaikin(coords);
+  coords = chaikin(coords);
+  coords = chaikin(coords); // three passes for smoother silhouette
+
+  // occasionally add spikes/lobes for interest
+  if (rand() > 0.4) {
+    const spikeCount = Math.floor(rand() * 3) + 1;
+    for (let s = 0; s < spikeCount; s++) {
+      const idx = Math.floor(rand() * coords.length);
+      coords[idx] = [coords[idx][0] + (rand() - 0.5) * 12, coords[idx][1] + (rand() - 0.5) * 12];
+    }
+  }
+
+  // finalize and clamp values
+  const pts = coords.map(([x, y]) => [Math.max(1, Math.min(99, Math.round(x))), Math.max(1, Math.min(99, Math.round(y)))]) as Array<[number, number]>;
+  return `polygon(${pts.map(([x, y]) => `${x}% ${y}%`).join(', ')})`;
+};
+
+const Image = styled.img<{ shapeIndex?: number }>`
   width: 100%;
   max-width: 320px;
-  border-radius: 12px;
   margin-top: 12px;
-  box-shadow: 0 2px 8px rgba(var(--color-pink), 0.1);
+  box-shadow: 0 6px 18px rgba(var(--shadow-rgb), 0.08);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  border-radius: 10px;
+  object-fit: cover;
+
+  /* procedurally generated large blob clip-path (65% - 91% radius) */
+  ${({ shapeIndex = 0 }) => `clip-path: ${generateLargeBlob(shapeIndex, 7)};`}
+
+  &:hover {
+    transform: translateY(-6px) scale(1.02) rotate(-0.6deg);
+    box-shadow: 0 16px 36px rgba(var(--shadow-rgb), 0.12);
+  }
 `;
 
 const ExpandButton = styled.button`
