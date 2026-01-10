@@ -15,19 +15,10 @@
     --frame-clip: 0; /* restore no clipping */
 }
 
-/* Using Google Font 'Great Vibes' as a script-like alternative to The Seasons */
+/* Using Google Font 'Playfair Display' as a readable serif for headings and body */
 
 body {
-  font-family:
-    'Great Vibes',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    sans-serif;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
   line-height: 1.5;
   font-weight: 400;
 
