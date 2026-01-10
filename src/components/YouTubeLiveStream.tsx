@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 800px;
   height: auto;
-  border: 2px solid #e88ca6;
+  border: 2px solid #f7c7ce;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;

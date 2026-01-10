@@ -10,9 +10,7 @@ const Location = () => {
   // Build a Google Calendar link from the event date/time and address in data.json
   const buildCalendarLink = () => {
     // greeting.eventDetail is like "February 28, 2026 (Saturday) 10:00"
-    const match = /([A-Za-z]+ \d{1,2}, \d{4}).*?(\d{1,2}:\d{2})/.exec(
-      greeting.eventDetail
-    );
+    const match = /([A-Za-z]+ \d{1,2}, \d{4}).*?(\d{1,2}:\d{2})/.exec(greeting.eventDetail);
     if (!match) return '#';
     const datePart = match[1];
     const timePart = match[2];
@@ -38,7 +36,7 @@ const Location = () => {
     const endDate = new Date(localDate.getTime() + 2 * 60 * 60 * 1000); // +2 hours
     const end = toGoogleDate(endDate);
 
-    const title = encodeURIComponent("Sakyawira & Debbie Wedding");
+    const title = encodeURIComponent('Sakyawira & Debbie Wedding');
     const details = encodeURIComponent(
       `Join us for the wedding celebration of Sakyawira and Debbie!\n\nLocation: ${mapInfo.address2}`
     );

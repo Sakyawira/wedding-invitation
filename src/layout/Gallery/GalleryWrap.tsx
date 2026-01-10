@@ -57,7 +57,7 @@ const PlusButton = styled.div`
   font-size: 1rem;
   align-items: center;
   border-radius: 4px;
-  border: 1px solid #dfdfdf;
+  border: 1px solid #ffd7b0;
   cursor: pointer;
   transition: transform 0.3s ease;
   &:hover {

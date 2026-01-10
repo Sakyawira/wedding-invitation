@@ -60,16 +60,16 @@ const Timeline = ({ isCollapsed = false, onExpand }: TimelineProps) => {
   const previewCount = 1;
   return (
     <TimelineWrapper style={{ position: 'relative', width: '100%', maxWidth: 500 }}>
-      <VerticalTimeline lineColor="#e88ca6">
+      <VerticalTimeline lineColor="#F7C7CE">
         {(isCollapsed ? timelineEvents.slice(0, previewCount) : timelineEvents).map(
           (event, idx) => (
             <VerticalTimelineElement
               key={idx}
               date={event.date}
               dateClassName="timeline-date-centered"
-              iconStyle={{ background: '#e88ca6', color: '#fff', boxShadow: '0 0 0 4px #e6ece1' }}
-              contentStyle={{ background: '#fff', color: '#2F2120', border: '1px solid #e6ece1' }}
-              contentArrowStyle={{ borderRight: '7px solid #e6ece1' }}>
+              iconStyle={{ background: '#F7C7CE', color: '#fff', boxShadow: '0 0 0 4px #F7C7CE' }}
+              contentStyle={{ background: '#fff', color: '#2F2120', border: '1px solid #F7C7CE' }}
+              contentArrowStyle={{ borderRight: '7px solid #F7C7CE' }}>
               <PointTitle>{event.title}</PointTitle>
               <Caption>{event.description}</Caption>
               <Image src={event.image} alt={event.title} />
@@ -91,7 +91,7 @@ const TimelineWrapper = styled.div`
   margin: 0 auto;
   background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(232, 140, 166, 0.08);
+  box-shadow: 0 4px 12px rgba(247, 199, 206, 0.08);
   padding: 20px 0;
   position: relative;
 `;
@@ -101,7 +101,7 @@ const Image = styled.img`
   max-width: 320px;
   border-radius: 12px;
   margin-top: 12px;
-  box-shadow: 0 2px 8px rgba(232, 140, 166, 0.1);
+  box-shadow: 0 2px 8px rgba(247, 199, 206, 0.1);
 `;
 
 const ExpandButton = styled.button`
@@ -110,8 +110,9 @@ const ExpandButton = styled.button`
   padding: 10px 0;
   border-radius: 8px;
   border: none;
-  background: linear-gradient(90deg, #e88ca6 0%, #fcde70 100%);
+  background: linear-gradient(90deg, #d9772a 0%, #fcde70 100%);
   color: #fff;
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -120,7 +121,7 @@ const ExpandButton = styled.button`
     background 0.2s,
     color 0.2s;
   &:hover {
-    background: linear-gradient(90deg, #fcde70 0%, #e88ca6 100%);
+    background: linear-gradient(90deg, #fcde70 0%, #d9772a 100%);
     color: #2f2120;
   }
 `;

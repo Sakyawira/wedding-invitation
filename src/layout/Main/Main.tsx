@@ -52,9 +52,9 @@ const MainImg = styled.img`
 `;
 
 const MainTitle = styled.p`
-  font-family: HSSanTokki20-Regular, serif;
+  font-family: inherit;
   font-size: 2rem;
-  color: #2f2120;
+  color: #6a7b3a;
   line-height: 120%;
   white-space: pre-line;
   margin: 10px 0;

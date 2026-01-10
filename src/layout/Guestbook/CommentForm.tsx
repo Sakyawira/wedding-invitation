@@ -86,7 +86,7 @@ const NameInput = styled.input`
   font-size: 1rem;
   line-height: 1;
   outline: none;
-  border: 1px solid #ccc;
+  border: 1px solid #f7c7ce;
   font-family: inherit;
   font-weight: 300;
 `;
@@ -100,7 +100,7 @@ const MessageInput = styled.textarea`
   font-size: 1rem;
   line-height: 1.5;
   outline: none;
-  border: 1px solid #ccc;
+  border: 1px solid #f7c7ce;
   resize: none;
   font-family: inherit;
   font-weight: 300;
@@ -121,13 +121,13 @@ const SubmitButton = styled.button`
   transition: all 0.2s ease;
 
   &:hover:not(:disabled) {
-    background-color: #f5f5f5;
-    border-color: #999;
+    background-color: #fff5f6;
+    border-color: #6a7b3a;
   }
 
   &:disabled {
-    background-color: #f0f0f0;
-    color: #666;
+    background-color: #fff5f6;
+    color: #6a7b3a;
     cursor: not-allowed;
     opacity: 0.7;
   }

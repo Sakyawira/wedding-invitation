@@ -19,13 +19,13 @@ js-confetti를 이용하여 귀여운 컨페티 기능을 넣었습니다.
 1. 저장소를 클론합니다.
 
 ```
-git clone https://github.com/your-username/mobile-wedding-invitation.git
+git clone https://github.com/your-username/wedding-invitation.git
 ```
 
 2. 프로젝트 폴더로 이동합니다.
 
 ```
-cd mobile-wedding-invitation
+cd wedding-invitation
 ```
 
 3. 필요한 의존성을 설치합니다.
@@ -55,7 +55,7 @@ npm run dev
 
 ## Clone 후, 바로 배포하기
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fheejin-hwang%2Fmobile-wedding-invitation)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fheejin-hwang%2Fwedding-invitation)
 
 ## 참고 자료
 
@@ -74,4 +74,4 @@ npm run dev
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=heejin-hwang/mobile-wedding-invitation&type=Date)](https://star-history.com/#heejin-hwang/mobile-wedding-invitation&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=heejin-hwang/wedding-invitation&type=Date)](https://star-history.com/#heejin-hwang/wedding-invitation&Date)

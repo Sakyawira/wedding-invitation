@@ -41,7 +41,7 @@ const AccountWrap = ({
           {bank} {account}
         </AccountInfo>
         <CopyButton onClick={handleCopy}>
-          <Copy fill="#dfdfdf" />
+          <Copy fill="#FFD7B0" />
         </CopyButton>
       </Details>
       <AccountLinks>
@@ -61,10 +61,10 @@ const AccountWrap = ({
 };
 
 const Wrapper = styled.div`
-  font-family: 'SUITE-Regular';
+  font-family: inherit;
   padding: 20px;
   margin: 10px 0;
-  border-bottom: 1px solid #dfdfdf;
+  border-bottom: 1px solid #f7c7ce;
   &:last-of-type {
     margin-bottom: 0;
     border-bottom: none;
@@ -81,7 +81,7 @@ const Info = styled.div`
   margin: 5px 0;
 `;
 const Relation = styled.span`
-  color: #44484d;
+  color: #6a7b3a;
 `;
 const Name = styled.span`
   font-size: 1rem;
@@ -115,7 +115,7 @@ const AccountButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #dfdfdf;
+  border: 1px solid #ffd7b0;
   border-radius: 5px;
   margin: 5px 0;
   padding: 0 0.8em;
@@ -123,7 +123,7 @@ const AccountButton = styled.button`
   font-size: 0.7rem;
   cursor: pointer;
   gap: 2px;
-  color: #1a1a1a;
+  color: #6a7b3a;
   text-decoration: none;
   outline: none;
   box-shadow: none;

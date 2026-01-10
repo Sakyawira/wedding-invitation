@@ -51,7 +51,7 @@
 
 - `https://sakyawira.github.io/*` will work for ALL your GitHub Pages projects
 - Each GitHub username gets its own subdomain, so other users can't access your API key
-- The `*` wildcard allows any path under your domain (like `/mobile-wedding-invitation/`)
+- The `*` wildcard allows any path under your domain (like `/wedding-invitation/`)
 - Always include both localhost (for development) and your production domain
 
 ## Step 6: Test Your Setup

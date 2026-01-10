@@ -162,8 +162,8 @@ function App() {
           style={{
             textAlign: 'center',
             padding: '1rem',
-            color: '#8B4513',
-            fontFamily: 'serif',
+            color: '#D9772A',
+              fontFamily: 'inherit',
             maxWidth: '100%',
             overflow: 'hidden',
           }}>
@@ -175,7 +175,7 @@ function App() {
               margin: '0 auto',
               wordBreak: 'break-word',
               hyphens: 'auto',
-              color: '#8B4513',
+              color: '#D9772A',
               fontStyle: 'italic',
             }}>
             For our Indonesian friends who wish to send gifts
@@ -200,8 +200,8 @@ function App() {
           style={{
             textAlign: 'center',
             padding: '0.25rem 1rem 1.5rem 1rem',
-            color: '#8B4513',
-            fontFamily: 'serif',
+            color: '#D9772A',
+            fontFamily: 'inherit',
             maxWidth: '100%',
             overflow: 'hidden',
           }}>
@@ -230,7 +230,7 @@ function App() {
             style={{
               fontSize: 'clamp(1rem, 3.5vw, 1.2rem)',
               fontWeight: 'bold',
-              color: '#D2691E',
+              color: '#D9772A',
               wordBreak: 'break-word',
               maxWidth: '90%',
               margin: '0 auto',

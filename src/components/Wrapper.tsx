@@ -6,7 +6,7 @@ const Wrapper = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
-  color: #222;
+  color: #6a7b3a;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
