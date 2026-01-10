@@ -11,9 +11,19 @@ const fadeIn = keyframes`
 const Main = () => {
   const { greeting } = data;
   
-  // Extract name parameter from URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const name = urlParams.get('name');
+  // Extract name parameter from URL (safe for SSR) and sanitize
+  const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+  let name = urlParams ? urlParams.get('name') : null;
+  if (name) {
+    try {
+      name = decodeURIComponent(name);
+    } catch (e) {
+      // ignore decode errors and keep raw value
+    }
+    name = name.trim().slice(0, 50);
+    // Insert space between camel-cased parts: SakyaRuslim -> Sakya Ruslim
+    name = name.replace(/([a-z])([A-Z])/g, '$1 $2');
+  }
   
   // Create dynamic title
   const dynamicTitle = name 
