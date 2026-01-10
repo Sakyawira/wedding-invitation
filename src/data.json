@@ -6,29 +6,25 @@
       "groom": {
         "name": "Sakyawira Ruslim",
         "relation": "",
-        "parents": [
-        ]
+        "parents": []
       },
       "bride": {
         "name": "Debbie Hartono",
         "relation": "",
-        "parents": [
-        ]
+        "parents": []
       },
       "groomFather": {
         "name": "Djajadi Ruslim & Silvi Oktavia Wijaya",
         "relation": "Son of",
-        "parents": [
-        ]
+        "parents": []
       },
       "brideFather": {
         "name": "Aris Budiman Hartono & Karuniawati Tjahjadi",
         "relation": "Daughter of ",
-        "parents": [
-        ]
+        "parents": []
       }
     },
-    "eventDetail": "August 16, 2025 (Saturday) 15:30"
+    "eventDetail": "February 28, 2026 (Saturday) 10:00\nDuke & Duchess"
   },
   "hostInfo": [
     {
@@ -46,20 +42,20 @@
     }
   ],
   "mapInfo": {
-    "address1": "Cox's Bay Pavillion Hall",
-    "address2": "40 Kingsley Street, Westmere, Auckland 1022, New Zealand",
-    "googleMap": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3192.578970161224!2d174.7206804!3d-36.8525583!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d0d47ad31af6991%3A0xce879c376d6703ba!2sCox's%20Bay%20Pavillion%20Hall!5e0!3m2!1sen!2snz!4v1749964637684!5m2!1sen!2snz",
-    "lat": -36.8525583,
-    "lon": 174.7206804
+    "address1": "Duke & Duchess",
+    "address2": "Jl. Achmad Adnawijaya No.132, Tegal Gundil, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16152, Indonesia",
+    "googleMap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7926.966471849799!2d106.8161017!3d-6.5866957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5e7ff9b0813%3A0x2861e1a0fa389449!2sDuke%20and%20Duchess!5e0!3m2!1sen!2snz!4v1746278676549!5m2!1sen!2snz",
+    "lat": 37.54222,
+    "lon": 126.952708
   },
   "locationInfo": [
     {
       "title": "📅 Time",
-      "desc": "August 16, 2025 (Saturday) 15:30 NZT"
+      "desc": "February 28, 2026 (Saturday) 10:00"
     },
     {
       "title": "📍 Place",
-      "desc": "Cox's Bay Pavillion Hall, 40 Kingsley Street, Westmere, Auckland 1022, New Zealand."
+      "desc": "Duke & Duchess, Jl. Achmad Adnawijaya No.132, Tegal Gundil, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16152, Indonesia"
     }
   ],
   "emojis": [

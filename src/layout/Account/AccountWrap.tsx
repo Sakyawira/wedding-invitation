@@ -26,7 +26,7 @@ const AccountWrap = ({
       },
       () => {
         alert('Failed to copy account number.🥲🥲');
-      },
+      }
     );
   };
 
@@ -84,7 +84,7 @@ const Relation = styled.span`
   color: #44484d;
 `;
 const Name = styled.span`
-  font-size: 1rem
+  font-size: 1rem;
 `;
 
 const Details = styled.div`

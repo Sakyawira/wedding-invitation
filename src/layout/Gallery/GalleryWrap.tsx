@@ -15,9 +15,7 @@ const GalleryWrap = () => {
         {!isMoreView && <WhiteGradientOverlay />}
         <PhotoGallery />
       </ImageMoreWrap>
-      {!isMoreView && (
-        <PlusButton onClick={onClickImageMoreViewButton}>Expand</PlusButton>
-      )}
+      {!isMoreView && <PlusButton onClick={onClickImageMoreViewButton}>Expand</PlusButton>}
     </ContentsWrap>
   );
 };
@@ -49,10 +47,7 @@ const WhiteGradientOverlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    rgba(255, 255, 255, 0) 0%,
-    rgb(255, 255, 255) 90%
-  );
+  background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 90%);
 `;
 
 const PlusButton = styled.div`

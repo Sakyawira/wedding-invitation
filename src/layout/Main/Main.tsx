@@ -10,9 +10,10 @@ const fadeIn = keyframes`
 
 const Main = () => {
   const { greeting } = data;
-  
+
   // Extract name parameter from URL (safe for SSR) and sanitize
-  const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+  const urlParams =
+    typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
   let name = urlParams ? urlParams.get('name') : null;
   if (name) {
     try {
@@ -24,12 +25,12 @@ const Main = () => {
     // Insert space between camel-cased parts: SakyaRuslim -> Sakya Ruslim
     name = name.replace(/([a-z])([A-Z])/g, '$1 $2');
   }
-  
+
   // Create dynamic title
-  const dynamicTitle = name 
+  const dynamicTitle = name
     ? `Hi, ${name}! 💍 Sakya & Debbie are getting married - come celebrate! 🎉✨`
     : greeting.title;
-  
+
   return (
     <div>
       <MainImg src={mainImg} />
@@ -53,7 +54,7 @@ const MainImg = styled.img`
 const MainTitle = styled.p`
   font-family: HSSanTokki20-Regular, serif;
   font-size: 2rem;
-  color: #2F2120;
+  color: #2f2120;
   line-height: 120%;
   white-space: pre-line;
   margin: 10px 0;

@@ -11,7 +11,10 @@
     "preview": "vite preview",
     "deploy": "vite build && npx gh-pages -d dist",
     "compress-images": "node compress-images.cjs",
-    "build:optimized": "npm run compress-images && npm run build"
+    "build:optimized": "npm run compress-images && npm run build",
+    "format": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write ."
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",

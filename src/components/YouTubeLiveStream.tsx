@@ -7,8 +7,7 @@ const YouTubeLiveStream = () => {
         src="https://www.youtube-nocookie.com/embed/_GQr5ciW8JI?si=hucyuZGTTEEGYthF&amp;"
         title="YouTube Live Stream"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></StyledIframe>
+        allowFullScreen></StyledIframe>
     </Wrapper>
   );
 };

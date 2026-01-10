@@ -9,7 +9,7 @@ const CommentForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (!name.trim() || !message.trim()) {
       alert('Please fill in your name and message. 😢');
       return;
@@ -20,7 +20,7 @@ const CommentForm = () => {
       alert('Name must be less than 50 characters. 😅');
       return;
     }
-    
+
     if (message.length > 500) {
       alert('Message must be less than 500 characters. 😅');
       return;

@@ -12,7 +12,7 @@ const PhotoGallery = () => {
 
   // Detect iOS for optimized image loading
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-  
+
   // Limit images on iOS to prevent crashes
   const displayImages = isIOS ? images.slice(0, 8) : images;
 

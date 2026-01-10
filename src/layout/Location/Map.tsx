@@ -10,8 +10,7 @@ const Map = ({ src }: MapProps) => {
       src={src}
       allowFullScreen
       loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-    ></StyledIframe>
+      referrerPolicy="no-referrer-when-downgrade"></StyledIframe>
   );
 };
 

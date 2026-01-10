@@ -18,17 +18,17 @@ const CLEANUP_INTERVAL = 5000; // Cleanup interval in milliseconds
 function getDevicePerformanceLevel(): 'low' | 'medium' | 'high' {
   // Check for device memory (if available)
   const memory = (navigator as unknown as { deviceMemory?: number }).deviceMemory;
-  
+
   // Check hardware concurrency (CPU cores)
   const cores = navigator.hardwareConcurrency || 1;
-  
+
   // Memory-based detection
   if (memory) {
     if (memory >= 8) return 'high';
     if (memory >= 4) return 'medium';
     return 'low';
   }
-  
+
   // CPU-based detection
   if (cores >= 8) return 'high';
   if (cores >= 4) return 'medium';
@@ -39,12 +39,12 @@ function getDevicePerformanceLevel(): 'low' | 'medium' | 'high' {
 function getOptimalPetalCount(requestedDensity: number): number {
   const performanceLevel = getDevicePerformanceLevel();
   const maxPetals = Math.min(requestedDensity, MAX_PETALS);
-  
+
   // Also consider screen size - smaller screens need fewer petals
   const screenArea = window.innerWidth * window.innerHeight;
   const baseArea = 400 * 800; // Base area for full petal count
   const screenMultiplier = Math.min(1, screenArea / baseArea);
-  
+
   let devicePetals: number;
   switch (performanceLevel) {
     case 'low':
@@ -59,7 +59,7 @@ function getOptimalPetalCount(requestedDensity: number): number {
     default:
       devicePetals = Math.min(maxPetals, 30); // Safe default
   }
-  
+
   // Apply screen size multiplier
   return Math.max(10, Math.floor(devicePetals * screenMultiplier)); // Minimum 10 petals
 }
@@ -79,11 +79,16 @@ class Petal {
   windDecay = 0.96; // how quickly wind effect fades
   lastWindApplied = 0; // timestamp of last wind effect
   isActive = true; // for object pooling
-  
+
   // Pre-allocated objects to reduce garbage collection
   private static tempPoint = { x: 0, y: 0 };
 
-  constructor(canvas: HTMLCanvasElement, sizeRange: [number, number], speedRange: [number, number], color: string) {
+  constructor(
+    canvas: HTMLCanvasElement,
+    sizeRange: [number, number],
+    speedRange: [number, number],
+    color: string
+  ) {
     this.canvas = canvas;
     const context = canvas.getContext('2d');
     if (!context) {
@@ -99,17 +104,17 @@ class Petal {
     const padding = 20; // Padding from edges
     const maxX = Math.max(this.canvas.width - padding, padding);
     const maxY = Math.max(this.canvas.height - padding, padding);
-    
+
     this.x = Math.random() * maxX;
     this.y = Math.random() * maxY - maxY; // Start above screen
-    
+
     // Scale petal size based on screen size with smaller petals overall
     const sizeMultiplier = Math.max(0.25, Math.min(0.7, this.canvas.width / 400)); // Reduced max from 1 to 0.7
     const scaledSizeRange: [number, number] = [
       Math.max(1, sizeRange[0] * sizeMultiplier), // Reduced minimum from 1.5px to 1px
-      Math.max(2.5, sizeRange[1] * sizeMultiplier)    // Reduced minimum from 3px to 2.5px
+      Math.max(2.5, sizeRange[1] * sizeMultiplier), // Reduced minimum from 3px to 2.5px
     ];
-    
+
     this.size = Math.random() * (scaledSizeRange[1] - scaledSizeRange[0]) + scaledSizeRange[0];
     this.speed = Math.random() * (speedRange[1] - speedRange[0]) + speedRange[0];
     this.angle = Math.random() * Math.PI * 2;
@@ -119,23 +124,25 @@ class Petal {
     this.isActive = true;
   }
 
-  applyWind(wind: {x: number, y: number}, mouse: {x: number, y: number} | null) {
+  applyWind(wind: { x: number; y: number }, mouse: { x: number; y: number } | null) {
     if (!mouse || !this.isActive) return;
-    
+
     // Use pre-allocated object to reduce garbage collection
     const tempPoint = Petal.tempPoint;
     tempPoint.x = this.x - mouse.x;
     tempPoint.y = this.y - mouse.y;
-    
+
     const distSq = tempPoint.x * tempPoint.x + tempPoint.y * tempPoint.y;
     const radiusSq = WIND_RADIUS * WIND_RADIUS;
-    
+
     if (distSq < radiusSq) {
       // Wind effect falls off with distance (linear falloff)
       const dist = Math.sqrt(distSq);
       const strength = 1 - dist / WIND_RADIUS;
-      const windEffectX = wind.x * (PETAL_WIND_X_EFFECT + Math.random() * PETAL_WIND_X_RANDOM) * strength;
-      const windEffectY = wind.y * (PETAL_WIND_Y_EFFECT + Math.random() * PETAL_WIND_Y_RANDOM) * strength;
+      const windEffectX =
+        wind.x * (PETAL_WIND_X_EFFECT + Math.random() * PETAL_WIND_X_RANDOM) * strength;
+      const windEffectY =
+        wind.y * (PETAL_WIND_Y_EFFECT + Math.random() * PETAL_WIND_Y_RANDOM) * strength;
       this.windX = this.windX * this.windDecay + windEffectX * PETAL_WIND_BLEND;
       this.windY = this.windY * this.windDecay + windEffectY * PETAL_WIND_BLEND;
       this.lastWindApplied = Date.now();
@@ -144,21 +151,21 @@ class Petal {
 
   update() {
     if (!this.isActive) return;
-    
+
     this.x += this.windX;
     this.y += this.speed + this.windY;
     this.angle += this.spin + this.windX * PETAL_WIND_ROTATION;
-    
+
     // More generous reset conditions for smaller screens
     const resetMargin = 50; // Allow petals to go slightly off-screen before reset
     const leftBound = -resetMargin;
     const rightBound = this.canvas.width + resetMargin;
     const bottomBound = this.canvas.height + resetMargin;
-    
+
     if (this.y > bottomBound || this.x < leftBound || this.x > rightBound) {
       this.reset([1, 5], [0.5, 2]);
     }
-    
+
     // Wind decays naturally
     this.windX *= this.windDecay;
     this.windY *= this.windDecay;
@@ -166,37 +173,38 @@ class Petal {
 
   draw() {
     if (!this.isActive) return;
-    
+
     this.ctx.save();
     this.ctx.translate(this.x, this.y);
     this.ctx.rotate(this.angle);
-    
+
     // Cache mobile detection for performance
     const isMobile = this.canvas.width < 500;
-    
+
     // Optimize color setting - avoid regex replacement on every frame
     if (isMobile) {
-      this.ctx.fillStyle = this.color.includes('0.7)') || this.color.includes('0.8)') 
-        ? this.color.replace(/0\.[78]\)/, '0.9)')
-        : this.color;
+      this.ctx.fillStyle =
+        this.color.includes('0.7)') || this.color.includes('0.8)')
+          ? this.color.replace(/0\.[78]\)/, '0.9)')
+          : this.color;
     } else {
       this.ctx.fillStyle = this.color;
     }
-    
+
     this.ctx.beginPath();
     this.ctx.ellipse(0, 0, this.size, this.size * 1.5, 0, 0, Math.PI * 2);
     this.ctx.fill();
-    
+
     // Add stroke only on mobile and only for very small petals
     if (isMobile && this.size < 4) {
       this.ctx.strokeStyle = 'rgba(255, 182, 193, 0.3)';
       this.ctx.lineWidth = 0.5;
       this.ctx.stroke();
     }
-    
+
     this.ctx.restore();
   }
-  
+
   deactivate() {
     this.isActive = false;
   }
@@ -226,14 +234,17 @@ export function startFallingPetals({
 
   // Limit density to MAX_PETALS for performance and adjust based on device capabilities
   const actualDensity = getOptimalPetalCount(density);
-  const petals = Array.from({ length: actualDensity }, () => new Petal(canvas, sizeRange, speedRange, color));
+  const petals = Array.from(
+    { length: actualDensity },
+    () => new Petal(canvas, sizeRange, speedRange, color)
+  );
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    
+
     // Reset petals positions after resize to ensure they're visible
-    petals.forEach(petal => {
+    petals.forEach((petal) => {
       // Force petals to respawn in visible area
       petal.reset(sizeRange, speedRange);
       // Stagger the initial positions so they don't all appear at once
@@ -245,8 +256,8 @@ export function startFallingPetals({
   const windDecay = 0.95;
   let isMouseDown = false;
   let lastMouse = { x: 0, y: 0 };
-  let lastWindMouse: { x: number, y: number } | null = null;
-  let lastWind: { x: number, y: number } = { x: 0, y: 0 };
+  let lastWindMouse: { x: number; y: number } | null = null;
+  let lastWind: { x: number; y: number } = { x: 0, y: 0 };
   let animationId: number;
   let frameCount = 0;
   let lastCleanup = Date.now();
@@ -263,10 +274,12 @@ export function startFallingPetals({
 
   function onPointerMove(e: MouseEvent | TouchEvent) {
     if (!isMouseDown || mouseMoveThrottled) return;
-    
+
     mouseMoveThrottled = true;
-    setTimeout(() => { mouseMoveThrottled = false; }, throttleDelay);
-    
+    setTimeout(() => {
+      mouseMoveThrottled = false;
+    }, throttleDelay);
+
     const point = 'touches' in e ? e.touches[0] : e;
     const dx = point.clientX - lastMouse.x;
     const dy = point.clientY - lastMouse.y;
@@ -292,7 +305,7 @@ export function startFallingPetals({
 
   function animate() {
     frameCount++;
-    
+
     // Frame skipping for performance (if needed)
     if (FRAME_SKIP > 0 && frameCount % (FRAME_SKIP + 1) !== 0) {
       animationId = requestAnimationFrame(animate);
@@ -316,35 +329,35 @@ export function startFallingPetals({
     if (ctx) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
-    
+
     // Batch petal updates and draws
     for (const petal of petals) {
       // Only apply wind to petals near the last mouse up point
       if (lastWindMouse && (Math.abs(lastWind.x) > 0.01 || Math.abs(lastWind.y) > 0.01)) {
         petal.applyWind(lastWind, lastWindMouse);
       }
-      
+
       petal.update();
       petal.draw();
     }
-    
+
     // Decay wind after user stops dragging
     if (!isMouseDown) {
       wind.x *= windDecay;
       wind.y *= windDecay;
       if (Math.abs(wind.x) < 0.01) wind.x = 0;
       if (Math.abs(wind.y) < 0.01) wind.y = 0;
-      
+
       // Decay lastWind as well
       lastWind.x *= windDecay;
       lastWind.y *= windDecay;
       if (Math.abs(lastWind.x) < 0.01) lastWind.x = 0;
       if (Math.abs(lastWind.y) < 0.01) lastWind.y = 0;
-      
+
       // Clear lastWindMouse if wind is gone
       if (lastWind.x === 0 && lastWind.y === 0) lastWindMouse = null;
     }
-    
+
     animationId = requestAnimationFrame(animate);
   }
 
@@ -362,10 +375,10 @@ export function startFallingPetals({
     window.removeEventListener('touchmove', onPointerMove);
     window.removeEventListener('touchend', onPointerUp);
     window.removeEventListener('resize', resizeCanvas);
-    
+
     // Deactivate all petals
-    petals.forEach(petal => petal.deactivate());
-    
+    petals.forEach((petal) => petal.deactivate());
+
     // Remove canvas
     if (canvas.parentNode) {
       canvas.parentNode.removeChild(canvas);

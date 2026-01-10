@@ -31,7 +31,7 @@ const FloatingBar = ({ isVisible }: { isVisible: boolean }) => {
       },
       () => {
         alert('Failed to copy the address. 🥲🥲');
-      },
+      }
     );
   };
 

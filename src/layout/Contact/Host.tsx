@@ -11,7 +11,9 @@ const Host = () => {
         <h2>Groom</h2>
         <HostInfo person={groom} />
         <HostInfo person={groomFather as BrideAndGroom} />
-        <span role="img" aria-label="pink heart">💗</span>
+        <span role="img" aria-label="pink heart">
+          💗
+        </span>
         <h2>Bride</h2>
         <HostInfo person={bride} />
         <HostInfo person={brideFather as BrideAndGroom} />
@@ -49,22 +51,22 @@ const HighlightedName = styled.span`
   font-style: italic;
   word-break: break-word;
   hyphens: auto;
-  
+
   /* Large phones and tablets */
   @media (max-width: 480px) {
     font-size: 1rem;
   }
-  
+
   /* Galaxy S20/S24 Ultra and similar */
   @media (max-width: 412px) {
     font-size: 0.95rem;
   }
-  
+
   /* Galaxy S20 regular and similar */
   @media (max-width: 360px) {
     font-size: 0.9rem;
   }
-  
+
   /* Extra small devices */
   @media (max-width: 320px) {
     font-size: 0.85rem;
@@ -95,28 +97,28 @@ const HostDetails = styled.div`
   hyphens: auto;
   white-space: normal;
   flex-wrap: wrap;
-  
+
   /* Large phones and tablets */
   @media (max-width: 480px) {
     padding: 8px 4px;
     gap: 4px;
     font-size: 0.95rem;
   }
-  
+
   /* Galaxy S20/S24 Ultra and similar */
   @media (max-width: 412px) {
     padding: 6px 2px;
     gap: 3px;
     font-size: 0.9rem;
   }
-  
+
   /* Galaxy S20 regular and similar */
   @media (max-width: 360px) {
     padding: 4px 1px;
     gap: 2px;
     font-size: 0.85rem;
   }
-  
+
   /* Extra small devices */
   @media (max-width: 320px) {
     padding: 4px 0px;
@@ -130,22 +132,22 @@ const Relation = styled.div`
   min-width: 0;
   word-break: break-word;
   hyphens: auto;
-  
+
   /* Large phones and tablets */
   @media (max-width: 480px) {
     font-size: 0.95rem;
   }
-  
+
   /* Galaxy S20/S24 Ultra and similar */
   @media (max-width: 412px) {
     font-size: 0.9rem;
   }
-  
+
   /* Galaxy S20 regular and similar */
   @media (max-width: 360px) {
     font-size: 0.85rem;
   }
-  
+
   /* Extra small devices */
   @media (max-width: 320px) {
     font-size: 0.8rem;

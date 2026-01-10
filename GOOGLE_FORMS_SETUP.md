@@ -57,11 +57,13 @@ VITE_GOOGLE_SHEET_ID=your-spreadsheet-id-here
 ## Example Configuration
 
 If your form URL is:
+
 ```
 https://docs.google.com/forms/d/e/1FAIpQLSc1234567890/viewform
 ```
 
 Your submit URL becomes:
+
 ```
 https://docs.google.com/forms/d/e/1FAIpQLSc1234567890/formResponse
 ```
@@ -83,11 +85,13 @@ https://docs.google.com/forms/d/e/1FAIpQLSc1234567890/formResponse
 ## Troubleshooting
 
 ### Form submission not working?
+
 - Check that your form URL ends with `formResponse`
 - Verify field IDs are correct (inspect form elements)
 - Ensure form is set to accept responses
 
 ### Can't read responses?
+
 - Make sure Google Sheet is public (anyone with link can view)
 - Check that spreadsheet ID is correct
 - Verify the sheet has data in the expected format
