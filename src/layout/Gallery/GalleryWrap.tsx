@@ -47,7 +47,7 @@ const WhiteGradientOverlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 90%);
+  background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(var(--surface-rgb,255,255,255), var(--surface-opacity)) 90%);
 `;
 
 const PlusButton = styled.div`

@@ -102,7 +102,7 @@ const CopyButton = styled.button`
   gap: 2px;
   outline: none;
   box-shadow: none;
-  background: white;
+  background: rgba(var(--surface-rgb, 255,255,255), var(--surface-opacity));
 `;
 
 const AccountLinks = styled.div`
@@ -127,7 +127,7 @@ const AccountButton = styled.button`
   text-decoration: none;
   outline: none;
   box-shadow: none;
-  background: white;
+  background: rgba(var(--surface-rgb, 255,255,255), var(--surface-opacity));
 `.withComponent('a');
 
 const KakaopayImg = styled.img`
