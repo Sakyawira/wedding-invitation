@@ -11,17 +11,17 @@
 :root {
   /* Surface and frame control */
   --surface-opacity: 0.56; /* slightly higher for legibility */
-  --surface-rgb: 255, 250, 242; /* warm cream base */
-  --frame-opacity: 1; /* decorative frame opacity */
+  --surface-rgb: 13, 10, 7.5; /* warm cream base */
+  --frame-opacity: 0.65; /* decorative frame opacity */
   --frame-clip: 0; /* no clipping by default */
 
   /* Palette derived from provided artwork */
-  --color-coral: 217, 119, 42; /* #D9772A */
-  --color-peach: 255, 215, 176; /* #FFD7B0 */
-  --color-yellow: 252, 222, 112; /* #FCDE70 */
-  --color-pink: 247, 199, 206; /* #F7C7CE */
-  --color-green: 106, 123, 58; /* #6A7B3A */
-  --muted-text-rgb: 68, 64, 58; /* dark muted for readable text */
+  --color-peach: 217, 119, 42; /* #D9772A */
+  --color-green: 255, 215, 176; /* #FFD7B0 */
+  --color-coral: 252, 222, 112; /* #FCDE70 */
+  --color-yellow: 247, 199, 206; /* #F7C7CE */
+  --color-pink: 106, 123, 58; /* #6A7B3A */
+  --muted-text-rgb: 87, 89, 89; /* dark muted for readable text */
   --color-white: 255, 255, 255;
   --shadow-rgb: 0, 0, 0;
 }
