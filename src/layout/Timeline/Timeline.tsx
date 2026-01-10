@@ -68,7 +68,11 @@ const Timeline = ({ isCollapsed = false, onExpand }: TimelineProps) => {
               date={event.date}
               dateClassName="timeline-date-centered"
               iconStyle={{ background: '#F7C7CE', color: '#fff', boxShadow: '0 0 0 4px #F7C7CE' }}
-              contentStyle={{ background: 'transparent', color: '#2F2120', border: '1px solid #F7C7CE' }}
+              contentStyle={{
+                background: 'transparent',
+                color: '#2F2120',
+                border: '1px solid #F7C7CE',
+              }}
               contentArrowStyle={{ borderRight: '7px solid #F7C7CE' }}>
               <PointTitle>{event.title}</PointTitle>
               <Caption>{event.description}</Caption>
@@ -89,7 +93,7 @@ const TimelineWrapper = styled.div`
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  background: rgba(var(--surface-rgb, 255,255,255), var(--surface-opacity));
+  background: rgba(var(--surface-rgb, 255, 255, 255), var(--surface-opacity));
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(247, 199, 206, 0.08);
   padding: 20px 0;
@@ -132,7 +136,10 @@ const FadeOverlay = styled.div`
   bottom: 0;
   width: 100%;
   height: 80px;
-  background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(var(--surface-rgb,255,255,255), var(--surface-opacity)) 90%);
+  background: linear-gradient(
+    rgba(255, 255, 255, 0) 0%,
+    rgba(var(--surface-rgb, 255, 255, 255), var(--surface-opacity)) 90%
+  );
   pointer-events: none;
 `;
 

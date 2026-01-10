@@ -11,8 +11,8 @@
 :root {
   --surface-opacity: 0.5;
   --surface-rgb: 255, 255, 250; /* warm off-white / cream */
-    --frame-opacity: 1; /* restore original frame opacity */
-    --frame-clip: 0; /* restore no clipping */
+  --frame-opacity: 1; /* restore original frame opacity */
+  --frame-clip: 0; /* restore no clipping */
 }
 
 /* Using Google Font 'Playfair Display' as a readable serif for headings and body */

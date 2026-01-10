@@ -7,13 +7,13 @@ const Container = styled.div`
      frame is painted by ::after so it sits visually above the panel but does
      not affect the content layering. */
   --surface-opacity: 0.5; /* default opacity for the panel background */
-    border-image-source: url('./background.png'); /* Set the image path */
+  border-image-source: url('./background.png'); /* Set the image path */
   border-image-slice: 30% 49%; /* Set the size of the image */
   border-image-width: 280px; /* Set the width of the border image */
   background-color: #ffffff;
 
   /* panel background applied directly like Button to ensure consistent translucency */
-  background: rgba(var(--surface-rgb, 0,0,0), var(--surface-opacity));
+  background: rgba(var(--surface-rgb, 0, 0, 0), var(--surface-opacity));
   border-radius: 8px;
   overflow: hidden;
 
@@ -30,7 +30,9 @@ const Container = styled.div`
     pointer-events: none;
     opacity: var(--frame-opacity, 0);
     /* optionally crop outer margins of the frame so the body background shows through */
-    clip-path: inset(var(--frame-clip, 0) var(--frame-clip, 0) var(--frame-clip, 0) var(--frame-clip, 0));
+    clip-path: inset(
+      var(--frame-clip, 0) var(--frame-clip, 0) var(--frame-clip, 0) var(--frame-clip, 0)
+    );
   }
 
   /* ensure children render above the panel but below the decorative frame */

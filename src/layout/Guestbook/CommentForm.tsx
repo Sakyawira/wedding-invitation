@@ -113,7 +113,7 @@ const SubmitButton = styled.button`
   font-size: 1rem;
   line-height: 1.5;
   border: 1px solid lightgray;
-  background-color: rgba(var(--surface-rgb, 255,255,255), var(--surface-opacity));
+  background-color: rgba(var(--surface-rgb, 255, 255, 255), var(--surface-opacity));
   font-family: inherit;
   font-weight: inherit;
   color: inherit;
@@ -121,12 +121,12 @@ const SubmitButton = styled.button`
   transition: all 0.2s ease;
 
   &:hover:not(:disabled) {
-    background-color: rgba(var(--surface-rgb, 255,255,255), calc(var(--surface-opacity) * 0.9));
+    background-color: rgba(var(--surface-rgb, 255, 255, 255), calc(var(--surface-opacity) * 0.9));
     border-color: #6a7b3a;
   }
 
   &:disabled {
-    background-color: rgba(var(--surface-rgb, 255,255,255), calc(var(--surface-opacity) * 0.9));
+    background-color: rgba(var(--surface-rgb, 255, 255, 255), calc(var(--surface-opacity) * 0.9));
     color: #6a7b3a;
     cursor: not-allowed;
     opacity: 0.7;
