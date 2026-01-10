@@ -5,7 +5,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/mobile-wedding-invitation/',
+  base: '/wedding-invitation/',
   plugins: [react(), tsconfigPaths(), svgr()],
   build: {
     // Optimize for mobile devices

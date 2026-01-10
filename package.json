@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Sakyawira.github.io/mobile-wedding-invitation",
+  "homepage": "https://Sakyawira.github.io/wedding-invitation",
   "scripts": {
     "dev": "vite",
     "build": "npm run compress-images && tsc && vite build",
