@@ -11,6 +11,7 @@ import Account from '@/layout/Account/Account.tsx';
 import Container from '@/layout/Container.tsx';
 import FloatingBar from '@/layout/FloatingBar/FloatingBar.tsx';
 import GalleryWrap from '@/layout/Gallery/GalleryWrap.tsx';
+import BodyBackground from '@/layout/BodyBackground';
 import Guestbook from '@/layout/Guestbook/Guestbook.tsx';
 import Invitation from '@/layout/Invitation/Invitation.tsx';
 import Location from '@/layout/Location/Location.tsx';
@@ -132,6 +133,7 @@ function App() {
 
   return (
     <Container>
+      <BodyBackground />
       <Wrapper id="main" ref={mainRef} data-aos="fade-up">
         <Main />
       </Wrapper>
@@ -163,7 +165,7 @@ function App() {
             textAlign: 'center',
             padding: '1rem',
             color: '#D9772A',
-              fontFamily: 'inherit',
+            fontFamily: 'inherit',
             maxWidth: '100%',
             overflow: 'hidden',
           }}>

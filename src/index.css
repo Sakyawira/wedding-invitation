@@ -11,12 +11,20 @@
 /* Using Google Font 'Great Vibes' as a script-like alternative to The Seasons */
 
 body {
-  font-family: 'Great Vibes', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family:
+    'Great Vibes',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color: #6A7B3A;
+  color: #6a7b3a;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,7 +37,13 @@ body {
   min-width: 280px;
   display: flex;
   justify-content: center;
-  background-color: #d9e2d1;
+  background-image: url('/body-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: cover;
+  /* subtle overlay tint to keep text readable */
+  background-color: rgba(217, 226, 209, 0.6);
 
   /* Performance optimizations for mobile */
   overflow-x: hidden;
