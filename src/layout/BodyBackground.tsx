@@ -1,4 +1,4 @@
-import bg from '@/assets/images/compressed/05.jpg';
+import bg from '@/assets/images/13.jpg';
 import styled from '@emotion/styled';
 
 const Bg = styled.div`

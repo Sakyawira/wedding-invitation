@@ -44,11 +44,26 @@ export default Main;
 
 // ...existing code...
 const MainImg = styled.img`
-  border-radius: 200px 200px 0 0;
   width: 90%;
   max-width: 450px;
-  padding: 20px;
+  padding: 18px;
+  display: block;
+  margin: 0 auto;
   animation: ${fadeIn} 1s ease-out;
+
+  /* organic clipped shape with graceful fallback */
+  border-radius: 20px;
+  clip-path: polygon(
+    5% 10%, 95% 5%, 100% 40%, 85% 95%, 15% 95%, 0% 55%
+  );
+
+  box-shadow: 0 10px 30px rgba(var(--shadow-rgb), 0.12);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+
+  &:hover {
+    transform: translateY(-6px) scale(1.01) rotate(-0.5deg);
+    box-shadow: 0 18px 40px rgba(var(--shadow-rgb), 0.16);
+  }
 `;
 
 const MainTitle = styled.p`
