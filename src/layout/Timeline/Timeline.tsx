@@ -60,20 +60,20 @@ const Timeline = ({ isCollapsed = false, onExpand }: TimelineProps) => {
   const previewCount = 1;
   return (
     <TimelineWrapper style={{ position: 'relative', width: '100%', maxWidth: 500 }}>
-      <VerticalTimeline lineColor="#F7C7CE">
+      <VerticalTimeline lineColor={`rgba(var(--color-pink), 0.95)`}>
         {(isCollapsed ? timelineEvents.slice(0, previewCount) : timelineEvents).map(
           (event, idx) => (
             <VerticalTimelineElement
               key={idx}
               date={event.date}
               dateClassName="timeline-date-centered"
-              iconStyle={{ background: '#F7C7CE', color: '#fff', boxShadow: '0 0 0 4px #F7C7CE' }}
+              iconStyle={{ background: 'rgba(var(--color-pink), 0.95)', color: 'rgb(var(--color-white))', boxShadow: '0 0 0 4px rgba(var(--color-pink), 0.9)' }}
               contentStyle={{
-                background: 'transparent',
-                color: '#2F2120',
-                border: '1px solid #F7C7CE',
+                    background: 'transparent',
+                    color: 'rgb(var(--muted-text-rgb))',
+                border: '1px solid rgba(var(--color-pink), 0.9)',
               }}
-              contentArrowStyle={{ borderRight: '7px solid #F7C7CE' }}>
+              contentArrowStyle={{ borderRight: '7px solid rgba(var(--color-pink), 0.9)' }}>
               <PointTitle>{event.title}</PointTitle>
               <Caption>{event.description}</Caption>
               <Image src={event.image} alt={event.title} />
@@ -95,7 +95,7 @@ const TimelineWrapper = styled.div`
   margin: 0 auto;
   background: rgba(var(--surface-rgb, 255, 255, 255), var(--surface-opacity));
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(247, 199, 206, 0.08);
+  box-shadow: 0 4px 12px rgba(var(--color-pink), 0.08);
   padding: 20px 0;
   position: relative;
 `;
@@ -105,7 +105,7 @@ const Image = styled.img`
   max-width: 320px;
   border-radius: 12px;
   margin-top: 12px;
-  box-shadow: 0 2px 8px rgba(247, 199, 206, 0.1);
+  box-shadow: 0 2px 8px rgba(var(--color-pink), 0.1);
 `;
 
 const ExpandButton = styled.button`
@@ -114,19 +114,19 @@ const ExpandButton = styled.button`
   padding: 10px 0;
   border-radius: 8px;
   border: none;
-  background: linear-gradient(90deg, #d9772a 0%, #fcde70 100%);
-  color: #fff;
+  background: linear-gradient(90deg, rgba(var(--color-coral),1) 0%, rgba(var(--color-yellow),1) 100%);
+  color: rgb(var(--color-white));
   font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(232, 140, 166, 0.1);
+  box-shadow: 0 2px 8px rgba(var(--color-pink), 0.1);
   transition:
     background 0.2s,
     color 0.2s;
   &:hover {
-    background: linear-gradient(90deg, #fcde70 0%, #d9772a 100%);
-    color: #2f2120;
+    background: linear-gradient(90deg, rgba(var(--color-yellow),1) 0%, rgba(var(--color-coral),1) 100%);
+    color: rgb(var(--muted-text-rgb));
   }
 `;
 
@@ -137,7 +137,7 @@ const FadeOverlay = styled.div`
   width: 100%;
   height: 80px;
   background: linear-gradient(
-    rgba(255, 255, 255, 0) 0%,
+    transparent 0%,
     rgba(var(--surface-rgb, 255, 255, 255), var(--surface-opacity)) 90%
   );
   pointer-events: none;

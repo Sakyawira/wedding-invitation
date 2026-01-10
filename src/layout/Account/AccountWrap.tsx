@@ -41,7 +41,7 @@ const AccountWrap = ({
           {bank} {account}
         </AccountInfo>
         <CopyButton onClick={handleCopy}>
-          <Copy fill="#FFD7B0" />
+          <Copy fill={`rgb(var(--color-peach))`} />
         </CopyButton>
       </Details>
       <AccountLinks>
@@ -64,7 +64,7 @@ const Wrapper = styled.div`
   font-family: inherit;
   padding: 20px;
   margin: 10px 0;
-  border-bottom: 1px solid #f7c7ce;
+    border-bottom: 1px solid rgba(var(--color-pink), 0.9);
   &:last-of-type {
     margin-bottom: 0;
     border-bottom: none;
@@ -81,7 +81,7 @@ const Info = styled.div`
   margin: 5px 0;
 `;
 const Relation = styled.span`
-  color: #6a7b3a;
+    color: rgb(var(--color-green));
 `;
 const Name = styled.span`
   font-size: 1rem;
@@ -102,7 +102,7 @@ const CopyButton = styled.button`
   gap: 2px;
   outline: none;
   box-shadow: none;
-  background: rgba(var(--surface-rgb, 255, 255, 255), var(--surface-opacity));
+    background: rgba(var(--surface-rgb), var(--surface-opacity));
 `;
 
 const AccountLinks = styled.div`
@@ -115,7 +115,7 @@ const AccountButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ffd7b0;
+    border: 1px solid rgba(var(--color-peach), 0.95);
   border-radius: 5px;
   margin: 5px 0;
   padding: 0 0.8em;
@@ -123,11 +123,11 @@ const AccountButton = styled.button`
   font-size: 0.7rem;
   cursor: pointer;
   gap: 2px;
-  color: #6a7b3a;
+    color: rgb(var(--color-green));
   text-decoration: none;
   outline: none;
   box-shadow: none;
-  background: rgba(var(--surface-rgb, 255, 255, 255), var(--surface-opacity));
+    background: rgba(var(--surface-rgb), var(--surface-opacity));
 `.withComponent('a');
 
 const KakaopayImg = styled.img`

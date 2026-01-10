@@ -20,10 +20,10 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 800px;
   height: auto;
-  border: 2px solid #f7c7ce;
+  border: 2px solid rgba(var(--color-pink), 0.9);
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: rgba(var(--surface-rgb, 255, 255, 255), var(--surface-opacity));
+  box-shadow: 0 4px 6px rgba(var(--shadow-rgb), 0.12);
+  background-color: rgba(var(--surface-rgb), var(--surface-opacity));
 `;
 
 const StyledIframe = styled.iframe`

@@ -4,7 +4,7 @@ export const Heading1 = styled.p`
   font-family: inherit;
   font-size: 1.5rem;
   margin: 10px;
-  color: #f7c7ce;
+  color: rgb(var(--color-coral));
   white-space: pre-line;
 `;
 
@@ -18,7 +18,7 @@ export const PointTitle = styled.p`
   font-family: inherit;
   line-height: 1;
   margin: 0;
-  color: #f7c7ce;
+  color: rgb(var(--color-peach));
   white-space: pre-line;
 `;
 

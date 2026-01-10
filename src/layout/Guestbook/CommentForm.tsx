@@ -86,7 +86,7 @@ const NameInput = styled.input`
   font-size: 1rem;
   line-height: 1;
   outline: none;
-  border: 1px solid #f7c7ce;
+  border: 1px solid rgba(var(--color-pink), 0.9);
   font-family: inherit;
   font-weight: 300;
 `;
@@ -100,7 +100,7 @@ const MessageInput = styled.textarea`
   font-size: 1rem;
   line-height: 1.5;
   outline: none;
-  border: 1px solid #f7c7ce;
+  border: 1px solid rgba(var(--color-pink), 0.9);
   resize: none;
   font-family: inherit;
   font-weight: 300;
@@ -112,22 +112,22 @@ const SubmitButton = styled.button`
   border-radius: 4px;
   font-size: 1rem;
   line-height: 1.5;
-  border: 1px solid lightgray;
-  background-color: rgba(var(--surface-rgb, 255, 255, 255), var(--surface-opacity));
+  border: 1px solid rgba(var(--color-green), 0.9);
+  background-color: rgba(var(--color-peach), 0.95);
   font-family: inherit;
-  font-weight: inherit;
-  color: inherit;
+  font-weight: 500;
+  color: rgb(var(--muted-text-rgb));
   cursor: pointer;
   transition: all 0.2s ease;
 
   &:hover:not(:disabled) {
-    background-color: rgba(var(--surface-rgb, 255, 255, 255), calc(var(--surface-opacity) * 0.9));
-    border-color: #6a7b3a;
+    background-color: rgba(var(--color-yellow), 0.95);
+    border-color: rgba(var(--color-green), 0.95);
   }
 
   &:disabled {
-    background-color: rgba(var(--surface-rgb, 255, 255, 255), calc(var(--surface-opacity) * 0.9));
-    color: #6a7b3a;
+    background-color: rgba(var(--color-peach), 0.85);
+    color: rgb(var(--muted-text-rgb));
     cursor: not-allowed;
     opacity: 0.7;
   }

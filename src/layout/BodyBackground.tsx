@@ -17,7 +17,7 @@ const Overlay = styled.div`
   position: fixed;
   inset: 0;
   z-index: -998;
-  background: rgba(217, 226, 209, 0.25); /* subtle tint to match theme */
+  background: rgba(var(--surface-rgb), 0.18); /* subtle tint to match theme */
   pointer-events: none;
 `;
 

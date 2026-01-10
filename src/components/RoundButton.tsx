@@ -7,9 +7,9 @@ const RoundButton = styled.button`
   box-shadow: none;
   font-size: 0.9rem;
   cursor: pointer;
-  color: #6a7b3a;
+  color: rgb(var(--color-green));
   text-decoration: none;
-  background-color: #f7c7ce;
+  background-color: rgba(var(--color-pink), 0.95);
   text-align: center;
   display: flex;
   justify-content: center;

@@ -54,7 +54,7 @@ const MainImg = styled.img`
 const MainTitle = styled.p`
   font-family: inherit;
   font-size: 2rem;
-  color: #6a7b3a;
+  color: rgb(var(--color-green));
   line-height: 120%;
   white-space: pre-line;
   margin: 10px 0;

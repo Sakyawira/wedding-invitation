@@ -197,7 +197,11 @@ class Petal {
 
     // Add stroke only on mobile and only for very small petals
     if (isMobile && this.size < 4) {
-      this.ctx.strokeStyle = 'rgba(255, 182, 193, 0.3)';
+          // Stroke uses a soft peach derived from the palette via CSS variables
+          const getCssVar = (name: string) =>
+            typeof window !== 'undefined' ? getComputedStyle(document.documentElement).getPropertyValue(name).trim() : '';
+          const peachVar = getCssVar('--color-peach');
+          this.ctx.strokeStyle = peachVar ? `rgba(${peachVar}, 0.3)` : 'rgba(0,0,0,0)';
       this.ctx.lineWidth = 0.5;
       this.ctx.stroke();
     }
@@ -214,7 +218,12 @@ export function startFallingPetals({
   density = 100,
   sizeRange = [1, 5] as [number, number],
   speedRange = [0.5, 2] as [number, number],
-  color = 'rgba(255, 182, 193, 0.8)',
+  color,
+}: {
+  density?: number;
+  sizeRange?: [number, number];
+  speedRange?: [number, number];
+  color?: string;
 } = {}) {
   const canvas = document.createElement('canvas');
   canvas.style.position = 'fixed';
@@ -233,10 +242,18 @@ export function startFallingPetals({
   }
 
   // Limit density to MAX_PETALS for performance and adjust based on device capabilities
+  // Resolve default petal color from CSS variables when not explicitly provided
+  const getCssVar = (name: string) =>
+    typeof window !== 'undefined' ? getComputedStyle(document.documentElement).getPropertyValue(name).trim() : '';
+  const resolvedPink = getCssVar('--color-pink');
+  const resolvedPeach = getCssVar('--color-peach');
+  const defaultPetalColor = resolvedPink ? `rgba(${resolvedPink}, 0.85)` : resolvedPeach ? `rgba(${resolvedPeach}, 0.85)` : 'rgba(0,0,0,0)';
+  const petalColorProp = color || defaultPetalColor;
+
   const actualDensity = getOptimalPetalCount(density);
   const petals = Array.from(
     { length: actualDensity },
-    () => new Petal(canvas, sizeRange, speedRange, color)
+    () => new Petal(canvas, sizeRange, speedRange, petalColorProp)
   );
 
   function resizeCanvas() {

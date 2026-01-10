@@ -48,8 +48,8 @@ const WhiteGradientOverlay = styled.div`
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    rgba(255, 255, 255, 0) 0%,
-    rgba(var(--surface-rgb, 255, 255, 255), var(--surface-opacity)) 90%
+    transparent 0%,
+    rgba(var(--surface-rgb), var(--surface-opacity)) 90%
   );
 `;
 
@@ -60,10 +60,11 @@ const PlusButton = styled.div`
   font-size: 1rem;
   align-items: center;
   border-radius: 4px;
-  border: 1px solid #ffd7b0;
+  border: 1px solid rgba(var(--color-peach), 0.95);
   cursor: pointer;
   transition: transform 0.3s ease;
   &:hover {
     transform: scale(1.05);
   }
+  color: rgb(var(--muted-text-rgb));
 `;

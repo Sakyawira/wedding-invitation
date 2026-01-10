@@ -10,10 +10,10 @@ const Container = styled.div`
   border-image-source: url('./background.png'); /* Set the image path */
   border-image-slice: 30% 49%; /* Set the size of the image */
   border-image-width: 280px; /* Set the width of the border image */
-  background-color: #ffffff;
+  background-color: rgba(var(--surface-rgb), var(--surface-opacity));
 
   /* panel background applied directly like Button to ensure consistent translucency */
-  background: rgba(var(--surface-rgb, 0, 0, 0), var(--surface-opacity));
+  background: rgba(var(--surface-rgb), var(--surface-opacity));
   border-radius: 8px;
   overflow: hidden;
 
@@ -28,7 +28,7 @@ const Container = styled.div`
     background-position: center top;
     background-size: contain;
     pointer-events: none;
-    opacity: var(--frame-opacity, 0);
+    opacity: var(--frame-opacity, 1);
     /* optionally crop outer margins of the frame so the body background shows through */
     clip-path: inset(
       var(--frame-clip, 0) var(--frame-clip, 0) var(--frame-clip, 0) var(--frame-clip, 0)

@@ -5,6 +5,7 @@ import { startFallingPetals } from '@/assets/animations/fallingPetals';
 import WhaleSeaImage from '@/assets/images/whaleseal.png';
 
 import { Heading1 } from '@/components/Text.tsx';
+import styled from '@emotion/styled';
 import Wrapper from '@/components/Wrapper.tsx';
 import YouTubeLiveStream from '@/components/YouTubeLiveStream.tsx';
 import Account from '@/layout/Account/Account.tsx';
@@ -114,7 +115,6 @@ function App() {
         density: isMobile ? 8 : 15, // Much lower density for mobile
         sizeRange: [1, 3] as [number, number], // Smaller petals
         speedRange: [0.3, 0.8] as [number, number], // Slower movement
-        color: 'rgba(255, 182, 193, 0.6)', // Lower opacity
       };
 
       try {
@@ -160,15 +160,7 @@ function App() {
       <hr className="separator" />
       <Wrapper id="giftInfo" ref={giftInfoRef} data-aos="fade-up">
         <Heading1>Gift Information</Heading1>
-        <div
-          style={{
-            textAlign: 'center',
-            padding: '1rem',
-            color: '#D9772A',
-            fontFamily: 'inherit',
-            maxWidth: '100%',
-            overflow: 'hidden',
-          }}>
+        <ColorWrap style={{ textAlign: 'center', padding: '1rem', maxWidth: '100%', overflow: 'hidden' }}>
           <p
             style={{
               fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
@@ -177,12 +169,11 @@ function App() {
               margin: '0 auto',
               wordBreak: 'break-word',
               hyphens: 'auto',
-              color: '#D9772A',
               fontStyle: 'italic',
             }}>
             For our Indonesian friends who wish to send gifts
           </p>
-        </div>
+        </ColorWrap>
         <Account />
       </Wrapper>
 
@@ -198,15 +189,7 @@ function App() {
       </Wrapper>
       <hr className="separator" style={{ marginBottom: '10px' }} />
       <Wrapper id="thankyou" data-aos="fade-up">
-        <div
-          style={{
-            textAlign: 'center',
-            padding: '0.25rem 1rem 1.5rem 1rem',
-            color: '#D9772A',
-            fontFamily: 'inherit',
-            maxWidth: '100%',
-            overflow: 'hidden',
-          }}>
+        <ColorWrap style={{ textAlign: 'center', padding: '0.25rem 1rem 1.5rem 1rem', maxWidth: '100%', overflow: 'hidden' }}>
           <Heading1
             style={{
               marginBottom: '1.5rem',
@@ -232,28 +215,29 @@ function App() {
             style={{
               fontSize: 'clamp(1rem, 3.5vw, 1.2rem)',
               fontWeight: 'bold',
-              color: '#D9772A',
               wordBreak: 'break-word',
               maxWidth: '90%',
               margin: '0 auto',
             }}>
             We hope to see you soon! 💕
           </p>
-          <img
-            src={WhaleSeaImage}
-            alt="Whale and Seal"
-            style={{
-              marginTop: '1.5rem',
-              maxWidth: '220px',
-              width: '60%',
-              height: 'auto',
-              display: 'block',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              opacity: 0.95,
-            }}
-          />
-        </div>
+            <ColorWrap style={{ textAlign: 'center', padding: '0.25rem 1rem 1.5rem 1rem', maxWidth: '100%', overflow: 'hidden' }}>
+              <img
+                src={WhaleSeaImage}
+                alt="Whale and Seal"
+                style={{
+                  marginTop: '1.5rem',
+                  maxWidth: '220px',
+                  width: '60%',
+                  height: 'auto',
+                  display: 'block',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  opacity: 0.95,
+                }}
+              />
+            </ColorWrap>
+          </ColorWrap>
       </Wrapper>
       <FloatingBar isVisible={Object.values(visibleSections).some(Boolean)} />
     </Container>
@@ -261,3 +245,8 @@ function App() {
 }
 
 export default App;
+
+const ColorWrap = styled.div`
+  color: rgb(var(--color-coral));
+  font-family: inherit;
+`;

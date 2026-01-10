@@ -53,15 +53,15 @@ const FloatingBar = ({ isVisible }: { isVisible: boolean }) => {
   return (
     <Nav isVisible={isVisible}>
       <Button onClick={handleCount}>
-        <Heart fill="#F7C7CE" />
+        <Heart className="floating-icon" />
         {/*{count || ''}*/}
       </Button>
       <Button onClick={handleCopy}>
-        <Share fill="#F7C7CE" />
+        <Share className="floating-icon" />
         Share
       </Button>
       <Button onClick={handleScroll}>
-        <Upward fill="#F7C7CE" />
+        <Upward className="floating-icon" />
         Scroll Up
       </Button>
     </Nav>

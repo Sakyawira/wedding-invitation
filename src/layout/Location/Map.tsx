@@ -20,7 +20,7 @@ const StyledIframe = styled.iframe`
   height: 250px;
   border: none;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(var(--shadow-rgb), 0.12);
 `;
 
 export default Map;
