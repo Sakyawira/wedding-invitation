@@ -48,6 +48,18 @@ const timelineEvents = [
     description: 'Last deep breath before the chaos of immigration and weddding prep.',
     image: images[7].source,
   },
+  {
+    date: 'July 2025',
+    title: 'Deebie moved to Auckland, New Zealand',
+    description: 'The adventure begins. New city, new job, new life together.',
+    image: images[8].source,
+  },
+  {
+    date: 'August 2025',
+    title: 'Officially married!',
+    description: 'We registered our marriage with the New Zealand government!',
+    image: images[9].source,
+  }
 ];
 
 interface TimelineProps {

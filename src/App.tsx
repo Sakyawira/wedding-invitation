@@ -7,8 +7,6 @@ import WhaleSeaImage from '@/assets/images/whaleseal.png';
 import { Heading1 } from '@/components/Text.tsx';
 import styled from '@emotion/styled';
 import Wrapper from '@/components/Wrapper.tsx';
-import YouTubeLiveStream from '@/components/YouTubeLiveStream.tsx';
-import Account from '@/layout/Account/Account.tsx';
 import Container from '@/layout/Container.tsx';
 import FloatingBar from '@/layout/FloatingBar/FloatingBar.tsx';
 import GalleryWrap from '@/layout/Gallery/GalleryWrap.tsx';
@@ -153,33 +151,8 @@ function App() {
         <Timeline isCollapsed={!isTimelineOpen} onExpand={() => setIsTimelineOpen(true)} />
       </Wrapper>
       <hr className="separator" />
-      <Wrapper id="liveStream" ref={liveStreamRef} data-aos="fade-up">
-        <Heading1>Live Stream</Heading1>
-        <YouTubeLiveStream />
-      </Wrapper>
-      <hr className="separator" />
-      <Wrapper id="giftInfo" ref={giftInfoRef} data-aos="fade-up">
-        <Heading1>Gift Information</Heading1>
-        <ColorWrap style={{ textAlign: 'center', padding: '1rem', maxWidth: '100%', overflow: 'hidden' }}>
-          <p
-            style={{
-              fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
-              lineHeight: '1.4',
-              maxWidth: '95%',
-              margin: '0 auto',
-              wordBreak: 'break-word',
-              hyphens: 'auto',
-              fontStyle: 'italic',
-            }}>
-            For our Indonesian friends who wish to send gifts
-          </p>
-        </ColorWrap>
-        <Account />
-      </Wrapper>
-
-      <hr className="separator" />
       <Wrapper id="messages" ref={messagesRef} data-aos="fade-up">
-        <Heading1>Messages to the Couple</Heading1>
+        <Heading1>Attendance Confirmation</Heading1>
         <Guestbook />
       </Wrapper>
       <hr className="separator" />

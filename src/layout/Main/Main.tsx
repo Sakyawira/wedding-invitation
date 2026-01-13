@@ -28,7 +28,7 @@ const Main = () => {
 
   // Create dynamic title
   const dynamicTitle = name
-    ? `Hi, ${name}! 💍 Sakya & Debbie are getting married - come celebrate! 🎉✨`
+    ? `Hi, ${name}! 💍 Sakya & Debbie got married - come celebrate! 🎉✨`
     : greeting.title;
 
   return (

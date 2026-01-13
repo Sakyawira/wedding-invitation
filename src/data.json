@@ -1,7 +1,7 @@
 {
   "greeting": {
-    "title": "Sakyawira 💍 Debbie\nWe are getting married!",
-    "message": "To our dear ones who have always warmed us with their love.\nWe invite you to share the precious moment of our first step as a married couple.\n\nYou'll find all the details about when and where below. And if you can't make it in person, no worries—there will be a livestream link so you can celebrate with us from anywhere!",
+    "title": "Sakyawira 💍 Debbie\nWe are celebrating our marriage!",
+    "message": "To our dear ones who have always warmed us with their love.\nWe invite you to share the precious moment of our long awaited wedding celebration.\n\nYou'll find all the details about when and where below. And please understand that this inivitaion is for you only. If your partner is invited, they will get a separate invitation.\n\nWe look forward to celebrating with you!",
     "host": {
       "groom": {
         "name": "Sakyawira Ruslim",
@@ -51,7 +51,7 @@
   "locationInfo": [
     {
       "title": "📅 Time",
-      "desc": "February 28, 2026 (Saturday) 10:00"
+      "desc": "February 28, 2026 (Saturday) 10:00 am"
     },
     {
       "title": "📍 Place",

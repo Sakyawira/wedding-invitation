@@ -6,7 +6,6 @@ import data from 'data.json';
 // import { realtimeDb } from 'firebase.ts';
 import JSConfetti from 'js-confetti';
 import Heart from '@/assets/icons/heart_plus.svg?react';
-import Share from '@/assets/icons/share.svg?react';
 import Upward from '@/assets/icons/upward.svg?react';
 import Button from '@/components/Button.tsx';
 
@@ -23,17 +22,6 @@ const FloatingBar = ({ isVisible }: { isVisible: boolean }) => {
   //     setCount(Number(snapshot.val()));
   //   });
   // }, []);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(window.location.href).then(
-      () => {
-        alert('Address copied successfully. 😉😉');
-      },
-      () => {
-        alert('Failed to copy the address. 🥲🥲');
-      }
-    );
-  };
 
   const handleCount = () => {
     void jsConfetti.addConfetti({ emojis });
@@ -55,10 +43,6 @@ const FloatingBar = ({ isVisible }: { isVisible: boolean }) => {
       <Button onClick={handleCount}>
         <Heart className="floating-icon" />
         {/*{count || ''}*/}
-      </Button>
-      <Button onClick={handleCopy}>
-        <Share className="floating-icon" />
-        Share
       </Button>
       <Button onClick={handleScroll}>
         <Upward className="floating-icon" />

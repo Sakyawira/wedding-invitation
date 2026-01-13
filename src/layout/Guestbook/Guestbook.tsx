@@ -6,9 +6,9 @@ const Guestbook = () => {
   return (
     <GuestBookWrapper>
       <Heading2>
-        Please leave a message.
+        Please confirm whether you will attend our wedding!
         <br />
-        After the wedding, it will be delivered to the bride and groom.
+        We would love to know before January 28, 2026. 💌
       </Heading2>
       <CommentForm />
     </GuestBookWrapper>

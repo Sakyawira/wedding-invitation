@@ -59,7 +59,7 @@ const CommentForm = () => {
         onChange={(e) => setName(e.target.value)}
       />
       <MessageInput
-        placeholder="Are you coming?"
+        placeholder="Are you coming? (Yes/No)"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />

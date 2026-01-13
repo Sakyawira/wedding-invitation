@@ -86,3 +86,14 @@ body {
   background: rgba(var(--surface-rgb), var(--surface-opacity));
   backdrop-filter: blur(6px) saturate(1.05);
 }
+
+/* Floating bar icon helpers */
+.floating-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  /* Make SVGs inherit the surrounding text color */
+  fill: currentColor;
+}
