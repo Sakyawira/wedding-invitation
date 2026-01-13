@@ -1,4 +1,4 @@
-import bg from '@/assets/images/compressed/13.jpg';
+import bg from '@/assets/images/13.jpg';
 import styled from '@emotion/styled';
 
 const Bg = styled.div`
@@ -8,7 +8,21 @@ const Bg = styled.div`
   background-image: url(${bg});
   background-size: cover;
   background-position: center center;
+    /* background-attachment: fixed causes iOS Safari to zoom/crop the image.
+      Keep it by default for desktop, but disable on touch devices and small screens. */
   background-attachment: fixed;
+
+  /* Target iOS Safari and other touch devices */
+  @supports (-webkit-overflow-scrolling: touch) {
+    background-attachment: scroll;
+    background-position: center top;
+  }
+
+  /* Fallback for coarse pointers / small viewports */
+  @media (max-width: 768px), (pointer: coarse) {
+    background-attachment: scroll;
+    background-position: center top;
+  }
   filter: none;
   pointer-events: none;
 `;
