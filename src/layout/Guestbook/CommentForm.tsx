@@ -38,7 +38,7 @@ const CommentForm = () => {
       if (success) {
         setName('');
         setMessage('');
-        alert('Thank you for your message! 💝');
+        alert('Thank you for your confirmation! 💝');
       } else {
         alert('Sorry, there was an error submitting your message. Please try again. 😢');
       }
