@@ -16,6 +16,7 @@ import Invitation from '@/layout/Invitation/Invitation.tsx';
 import Location from '@/layout/Location/Location.tsx';
 import Main from '@/layout/Main/Main.tsx';
 import Timeline from '@/layout/Timeline/Timeline.tsx';
+import Account from './layout/Account/Account';
 
 function App() {
   const [visibleSections, setVisibleSections] = useState<Record<string, boolean>>({});
@@ -145,6 +146,27 @@ function App() {
         <Heading1>Place & Time</Heading1>
         <Location />
       </Wrapper>
+      <hr className="separator" />
+
+       <Wrapper id="giftInfo" ref={giftInfoRef} data-aos="fade-up">
+        <Heading1>Dress Code</Heading1>
+        <ColorWrap style={{ textAlign: 'center', padding: '1rem', maxWidth: '100%', overflow: 'hidden' }}>
+          <p
+            style={{
+              fontSize: 'clamp(0.8rem, 2.5vw, 1rem)',
+              lineHeight: '1.4',
+              maxWidth: '95%',
+              margin: '0 auto',
+              wordBreak: 'break-word',
+              hyphens: 'auto',
+              fontStyle: 'italic',
+            }}>
+            Here are some outfit color suggestions to help you shine on our special day ✨
+          </p>
+        </ColorWrap>
+        <Account />
+      </Wrapper>
+
       <hr className="separator" />
       <Wrapper id="timeline" data-aos="fade-up">
         <Heading1>Our Story Timeline</Heading1>
