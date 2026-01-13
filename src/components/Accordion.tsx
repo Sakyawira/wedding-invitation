@@ -5,9 +5,10 @@ import ExpandMore from '@/assets/icons/expand_more.svg?react';
 interface IAccordionProps {
   title: string;
   children: ReactNode;
+  defaultOpen?: boolean;
 }
-const Accordion = ({ title, children }: IAccordionProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Accordion = ({ title, children, defaultOpen = false }: IAccordionProps) => {
+  const [isOpen, setIsOpen] = useState<boolean>(defaultOpen);
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);

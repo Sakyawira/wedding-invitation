@@ -10,7 +10,7 @@ const Account = () => {
   return (
     <HostInfoWrapper>
       {dressCodes?.map((group: any) => (
-        <Accordion title={group.title} key={group.title}>
+        <Accordion title={group.title} key={group.title} defaultOpen>
           <DressCodeWrap title={group.title} colors={group.colors} />
         </Accordion>
       ))}
