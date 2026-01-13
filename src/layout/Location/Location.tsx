@@ -19,7 +19,7 @@ const Location = () => {
       <Way>
         <PointTitle>{locationInfo[0].title}</PointTitle>
         <Caption>{locationInfo[0].desc}</Caption>
-        <RoundButton id="google-calendar-link" target="_blank" href={"https://calendar.app.google/oBYAttRPsaaLUvsVA"} rel="noreferrer">
+          <RoundButton id="google-calendar-end-feb-event" target="_blank" href={"https://calendar.app.google/oBYAttRPsaaLUvsVA"} rel="noreferrer">
           Add to Calendar
         </RoundButton>
       </Way>
