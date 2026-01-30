@@ -8,7 +8,7 @@ const Guestbook = () => {
       <Heading2>
         Please confirm whether you will attend our wedding!
         <br />
-        We would love to know before January 28, 2026. 💌
+        We would love to know before February 5, 2026. 💌
       </Heading2>
       <CommentForm />
     </GuestBookWrapper>

@@ -32,26 +32,15 @@ This guide shows how to set up Google Forms for your wedding guestbook - **no AP
 2. Copy the form URL (looks like: `https://docs.google.com/forms/d/e/1FAIpQLSc.../viewform`)
 3. Replace `viewform` with `formResponse`
 
-## Step 4: Set Up Google Sheets (Optional - for reading comments)
+## Environment Variables
 
-1. In your form, click "Responses" tab
-2. Click the green Sheets icon to create a spreadsheet
-3. Open the spreadsheet
-4. Click "Share" → "Anyone with the link can view"
-5. Copy the spreadsheet ID from the URL
-
-## Step 5: Update Environment Variables
-
-Update your `.env.local` file:
+Update your `.env.local` file with the Google Forms settings (no sheet ID needed):
 
 ```env
 # Google Forms Configuration
 VITE_GOOGLE_FORM_URL=https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse
 VITE_GOOGLE_FORM_NAME_FIELD_ID=123456789
 VITE_GOOGLE_FORM_MESSAGE_FIELD_ID=987654321
-
-# Google Sheets Configuration (for reading entries)
-VITE_GOOGLE_SHEET_ID=your-spreadsheet-id-here
 ```
 
 ## Example Configuration
@@ -71,8 +60,7 @@ https://docs.google.com/forms/d/e/1FAIpQLSc1234567890/formResponse
 ## How It Works
 
 1. **Submitting**: Your website submits form data directly to Google Forms
-2. **Reading**: Your website reads responses from the public Google Sheets CSV export
-3. **No Auth**: No API keys, OAuth, or complex authentication needed!
+2. **No Auth**: No API keys, OAuth, or complex authentication needed!
 
 ## Benefits
 
@@ -90,10 +78,10 @@ https://docs.google.com/forms/d/e/1FAIpQLSc1234567890/formResponse
 - Verify field IDs are correct (inspect form elements)
 - Ensure form is set to accept responses
 
-### Can't read responses?
+### Can't submit responses?
 
-- Make sure Google Sheet is public (anyone with link can view)
-- Check that spreadsheet ID is correct
-- Verify the sheet has data in the expected format
+- Check that your form URL ends with `formResponse`
+- Verify field IDs are correct (inspect form elements)
+- Ensure the form is set to accept responses
 
 This approach is much simpler than the Google Sheets API and doesn't require any authentication!

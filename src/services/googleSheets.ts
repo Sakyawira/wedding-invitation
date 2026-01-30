@@ -41,50 +41,7 @@ class GoogleFormsService {
       return false;
     }
   }
-
-  // For reading, we'll use the public CSV export of the Google Sheet
-  async getEntries(): Promise<GuestbookEntry[]> {
-    try {
-      const spreadsheetId = (import.meta.env.VITE_GOOGLE_SHEET_ID as string) || '';
-
-      if (!spreadsheetId) {
-        console.warn('No spreadsheet ID configured for reading entries');
-        return [];
-      }
-
-      // Google Sheets public CSV export URL
-      const csvUrl = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/export?format=csv&gid=0`;
-
-      const response = await fetch(csvUrl);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const csvText = await response.text();
-      const lines = csvText.split('\n');
-
-      // Skip header row and parse CSV
-      const entries: GuestbookEntry[] = lines
-        .slice(1)
-        .filter((line) => line.trim())
-        .map((line) => {
-          const [timestamp, name, message] = line
-            .split(',')
-            .map((cell) => cell.replace(/"/g, '').trim());
-          return {
-            name: name || '',
-            message: message || '',
-            timestamp: timestamp || '',
-          };
-        });
-
-      return entries;
-    } catch (error) {
-      console.error('Error fetching from Google Sheets:', error);
-      return [];
-    }
-  }
+  // Note: CSV-reading feature removed — entries are submitted via Google Form only.
 }
 
 export const googleSheetsService = new GoogleFormsService();
